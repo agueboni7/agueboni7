@@ -12,10 +12,6 @@ export class LoginPage implements OnInit {
   constructor(private servAuth: AuthentificationService, private router: Router) { }
 
   ngOnInit() {
-   /* const aut=this.servAuth.loanToken();
-    if(aut===true){
-      this.router.navigate(['home']);
-    }*/
   }
 
   onLoginSubmit(user){

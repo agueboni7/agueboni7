@@ -13,7 +13,7 @@ import { MeteoPage } from './meteo.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    MeteoPageRoutingModule
+    MeteoPageRoutingModule,
   ],
   declarations: [MeteoPage]
 })

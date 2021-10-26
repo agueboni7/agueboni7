@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, UrlTree } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -21,6 +21,5 @@ export class MenuPage implements OnInit {
   }
   onMenuItem(m){
     this.router.navigateByUrl(m.url);
-    console.log('je suis touché');
   }
 }
