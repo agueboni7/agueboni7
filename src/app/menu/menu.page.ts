@@ -20,6 +20,11 @@ export class MenuPage implements OnInit {
   ngOnInit() {
   }
   onMenuItem(m){
+    if(m.url==='/login'){
+      localStorage.removeItem('Maklé');
+      this.router.navigate(['/login'])
+    }else 
     this.router.navigateByUrl(m.url);
   }
+  
 }
