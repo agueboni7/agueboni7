@@ -9,7 +9,7 @@ export class AuthentificationService {
   public token: string;
   constructor() { }
 
-  onAuthentificated(user: string, password: string){
+ public onAuthentificated(user: string, password: string){
     if(user==='admin' && password==='123'){
       this.authentificated=true;
       this.saveToken();
@@ -18,11 +18,12 @@ export class AuthentificationService {
     }
     return this.authentificated;
   }
-  saveToken(){
+ public saveToken(){
     this.token= 'azerty';
     localStorage.setItem('Maklé', this.token);
   }
-  loanToken(){
+//Si le token exist
+ public loanToken(){
     this.token=localStorage.getItem('Maklé');
     if(this.token==='azerty'){
       this.authentificated=true;
