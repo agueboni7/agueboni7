@@ -28,6 +28,10 @@ const routes: Routes = [
         path: 'newlocation',
         loadChildren: () => import('../newlocation/newlocation.module').then( m => m.NewlocationPageModule)
       },
+      {
+        path: 'location-detail',
+        loadChildren: () => import('../location-detail/location-detail.module').then( m => m.LocationDetailPageModule)
+      },
     ]
   }
 ];
