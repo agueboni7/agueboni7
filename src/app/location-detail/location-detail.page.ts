@@ -47,31 +47,25 @@ export class LocationDetailPage implements OnInit {
           text: 'Camera',
           cssClass: 'primary',
           handler:()=>{
-            this.getPicture(options);
+            this.getEDPicture(options);
           }
       },{
         text: 'Librairie',
         cssClass: 'primary',
         handler: ()=>{
-          this.getPicture(options1);
+          this.getEDPicture(options1);
         }
       }
       ]
     });
     await alert.present();
-    /*this.camera.getPicture(options).then((imageData) => {
-     // imageData is either a base64 encoded string or a file URI
-     // If it's base64 (DATA_URL):
-     const base64Image = 'data:image/jpeg;base64,' + imageData;
-    }, (err) => {
-     console.log(err);
-    });*/
   }
-  getPicture(op: CameraOptions) {
+  getEDPicture(op: CameraOptions) {
     this.camera.getPicture(op).then((imageData)=>{
-      const base64Image = 'data:image/jpeg;base64,' + imageData;
-      //sthis.currentPlace.photo.push(base64Image);
-      this.serLoc.addPhoto(base64Image, this.currentPlace.timestamp);
+      this.currentPlace.photo=[];
+      const base64Image = 'data:image/jpeg;base64,'+imageData;
+      this.currentPlace.photo.push(base64Image);
+      //this.serLoc.addPhoto(base64Image, this.currentPlace.id);
     });
   }
 }

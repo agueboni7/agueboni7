@@ -27,16 +27,16 @@
       <ion-label>KeyWords: <strong> {{currentPlace.keywords}} </strong> </ion-label>
     </ion-item>
   </ion-list>
-    <ion-card>
+      <!-- <ion-card>
       <ion-card-content>
         <agm-map [latitude]="currentPlace.coordonates.latitude" [longitude]="currentPlace.coordonates.longitude">
           <agm-marker [latitude]="currentPlace.coordonates.latitude" [longitude]="currentPlace.coordonates.longitude"></agm-marker>
         </agm-map>
       </ion-card-content>
-    </ion-card>
+    </ion-card> -->
   <ion-card>
     <ion-card-content *ngFor="let p of currentPlace.photo">
-      <ion-img [src]="p"></ion-img>
+      <ion-img src="{{p}}"></ion-img>
     </ion-card-content>
   </ion-card>
 </ion-content>

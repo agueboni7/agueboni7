@@ -25,14 +25,18 @@ export class NewlocationPage implements OnInit {
   public onAddLocation(data: Place){
     data.timestamp=new Date().getTime();
     data.photo=[];
-    this.geolocation.getCurrentPosition().then((result)=>{
+    this.servLoc.addLocalisation(data).then((result)=>{
+      console.log(data);
+    });
+    /*this.geolocation.getCurrentPosition().then((result)=>{
       data.coordonates={
         longitude:result.coords.longitude,
         latitude:result.coords.latitude
     };
       console.log(data);
       this.servLoc.addLoctions(data);
-    });
+    });*/
+   // this.servLoc.addLoctions(data);
     this.navCtrl.back();
   }
 

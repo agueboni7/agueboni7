@@ -14,7 +14,7 @@ export class MenuPage implements OnInit {
     {title:'Gallery', url:'/menu/gallery', icon:'school'},
     {title:'Location', url:'/menu/locations', icon:'sync'},
     {title:'Logout', url:'/login', icon:'log-out'},
-    {title:'Exit', url:'Exit', icon: 'power'}
+    {title:'Exit', url:'/exit', icon: 'power'}
   ];
   constructor(private router: Router) { }
 
@@ -25,7 +25,7 @@ export class MenuPage implements OnInit {
       localStorage.removeItem('Maklé');
       this.router.navigate(['/login']);
     }
-    else if(m.url==='Exit'){
+    else if(m.url==='/exit'){
       // eslint-disable-next-line @typescript-eslint/dot-notation
       navigator['app'].exitApp();
     }
