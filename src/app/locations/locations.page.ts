@@ -4,7 +4,7 @@ import { Place } from './../model/place.model';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
+
 
 @Component({
   selector: 'app-locations',
@@ -17,33 +17,28 @@ export class LocationsPage implements OnInit {
     private router: Router,
      private serLocation: LocationsService,
      private alertCtrl: AlertController,
-     private storage: Storage
-     ) {
-      this.serLocation.createDatabase().then(()=>{
-        this.getPlaces();
-      });
-     }
+     ) {}
 
   ngOnInit() {
-    this.getPlaces();
   }
+  /*ionViewDidLoad() {
+    this.getPlaces();
+  }*/
+
+  ionViewWillEnter(){
+    this.getPlaces();
+   }
   getPlaces(){
     this.serLocation.getLocalisation().then((data)=>{
       this.locations=[];
       if (data.rows.length>0) {
         for (let i = 0; i < data.rows.length; i++) {
           this.locations.push(data.rows.item(i));
-          console.log('++**++*',this.locations);
+          console.log('++**++*'+JSON.stringify(this.locations) );
         }
       }
-      }).catch((e)=>{
-      console.log('erreur de recupéretion'+JSON.stringify(e));
-  });
+      });
   }
-
-  ionViewWillEnter(){
-    this.getPlaces();
-   }
   /* async init() {
     await this.storage.defineDriver(CordovaSQLiteDriver);
     await this.storage.create();

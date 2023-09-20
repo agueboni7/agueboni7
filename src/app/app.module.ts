@@ -14,6 +14,7 @@ import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
 import { SQLite} from '@awesome-cordova-plugins/sqlite/ngx';
 
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -22,13 +23,11 @@ import { SQLite} from '@awesome-cordova-plugins/sqlite/ngx';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    IonicStorageModule.forRoot({
-    }),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBWXoDEElBIheBO42_O0zCEd2I7YatBWjk'
     })
     ],
-  providers: [Geolocation, Camera, SQLite,  { provide: RouteReuseStrategy, useClass: IonicRouteStrategy}],
+  providers: [Geolocation, Camera, SQLite, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

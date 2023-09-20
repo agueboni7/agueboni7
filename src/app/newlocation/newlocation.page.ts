@@ -14,9 +14,9 @@ export class NewlocationPage implements OnInit {
   public currentPlace: Place;
   constructor(
     private servLoc: LocationsService,
-     private geolocation: Geolocation,
+    
     private navCtrl: NavController,
-    private alertCtrl: AlertController
+ 
      ) { }
   ngOnInit() {
   }
@@ -26,7 +26,9 @@ export class NewlocationPage implements OnInit {
     data.timestamp=new Date().getTime();
     data.photo=[];
     this.servLoc.addLocalisation(data).then((result)=>{
-      console.log(data);
+      alert('Données sauvegardés'+JSON.stringify(result));
+    }).catch((e)=>{
+      alert('Erreur  De SAuvegarde des donne'+e);
     });
     /*this.geolocation.getCurrentPosition().then((result)=>{
       data.coordonates={
